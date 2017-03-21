@@ -63,5 +63,24 @@ Laminar.Colors = (function() {
     // return percentageCalc(val);
     return circularCalc(val);
   }
+  Colors.prototype.generateGradient = function(color1,color2,saturation,lightness) {
+      color1 = Math.floor(color1);
+      color2 = Math.floor(color2);
+      var browserPrefixes = [
+        "-webkit-linear-gradient",
+        "-moz-linear-gradient",
+        "-o-linear-gradient"
+      ];
+      var returnString = "";
+      var saturation = saturation || "50%";
+      var lightness = lightness || "50%";
+      /*
+      for(var c=0;c<browserPrefixes.length;c++) {
+        returnString += browserPrefixes[c] + "(right, hsl(" + color1 + "," + saturation + "," + lightness + "), hsl(" + color2 + "," + saturation + "," + lightness + ")); \n";
+      }
+      */
+      returnString += "linear-gradient(to right, hsl(" + color1 + "," + saturation + "," + lightness + "), hsl(" + color2 + "," + saturation + "," + lightness + "))";
+      return returnString;
+    }
   return Colors;
 })();
