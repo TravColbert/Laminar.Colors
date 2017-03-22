@@ -17,7 +17,6 @@ var Laminar = Laminar || {};
 
 Laminar.Colors = (function() {
   function Colors() {
-    this.saturationConstant = "25%";
     this.hueConstant = 360;
     this.phi = 1.618;
     this.phiInverse = 0.6180340;
@@ -54,10 +53,10 @@ Laminar.Colors = (function() {
     }
     var circularCalc = function(val) {
       colors.push(val*that.hueConstant);
-      colors.push(rotateVal(colors[0],that.v0,true));
-      colors.push(rotateVal(colors[1],that.v1,true));
+      colors.push(rotateVal(colors[0],that.v0,false));
+      colors.push(rotateVal(colors[1],that.v1,false));
       colors.push(rotateVal(colors[2],that.v2,false));
-      colors.push(rotateVal(colors[0],that.v3,true));
+      colors.push(rotateVal(colors[0],that.v3,false));
       return colors;
     }
     // return percentageCalc(val);
