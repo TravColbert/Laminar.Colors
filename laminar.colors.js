@@ -7,12 +7,7 @@
 var Laminar = Laminar || {};
 
 
-/* General Idea: An object that simulates a typing effect.
- * In the constructor give:
- * - the element that will contain the typed text
- * - the text to type
- * - the time between typed keys
- * ... maybe other stuff like frequency of errors (mistypes)
+/* General Idea: An object that creates procedural color schemes.
  */
 
 Laminar.Colors = (function() {
@@ -71,8 +66,8 @@ Laminar.Colors = (function() {
         "-o-linear-gradient"
       ];
       var returnString = "";
-      var saturation = saturation || "50%";
-      var lightness = lightness || "50%";
+      saturation = saturation || "50%";
+      lightness = lightness || "50%";
       /*
       for(var c=0;c<browserPrefixes.length;c++) {
         returnString += browserPrefixes[c] + "(right, hsl(" + color1 + "," + saturation + "," + lightness + "), hsl(" + color2 + "," + saturation + "," + lightness + ")); \n";
