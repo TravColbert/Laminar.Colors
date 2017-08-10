@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  html,body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #content {
+    box-sizing: border-box;
+    transition: background-image 1s;
+    height: 100%;
+    width: 100%
+  }
+</style>
+<head>
+</head>
+<body>
+  <div id="content">&nbsp;</div>
+  <script src="../laminar.colors.js"></script>
+  <script>
+    var b = document.querySelector("#content");
+    var startHue = Math.random(); // Hue is just a percentage of 360 (e.g. 10%, 45%, etc)
+    var colorshifter = new Laminar.Colors();
+
+    var colorMigrate = setInterval(function() {
+      console.log(startHue);
+      if(startHue>1) startHue=0;
+      var colors = colorshifter.calcColorsFromPrimary(startHue);
+      startHue += 0.002;
+      var gradientString = colorshifter.generateGradient(colors[2],colors[0]);
+      b.style.background = gradientString;
+    },100);
+  </script>
+</body>
+</html>
